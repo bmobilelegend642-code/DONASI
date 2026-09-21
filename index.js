@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-const SECRET_KEY = process.env.SECRET_KEY || "GANTI_INI_SECRET_KAMU";
+const SECRET_KEY = process.env.SECRET_KEY || "weeebagiiiisserracnjaeab2";
 let queue = [];
 
 // Daftarin URL ini di dashboard Saweria: Pengaturan > Webhook
