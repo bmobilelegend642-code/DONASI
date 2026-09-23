@@ -1,15 +1,37 @@
 const express = require('express');
+const crypto = require('crypto');
 const app = express();
-app.use(express.json());
 
-const SECRET_KEY = process.env.SECRET_KEY || "GANTI_INI_SECRET_KAMU";
+const SECRET_KEY = process.env.SECRET_KEY || "GAweeebagiiiisserracnjaeab2";
+const BAGIBAGI_TOKEN = process.env.BAGIBAGI_WEBHOOK_TOKEN || "P5clNlrCKtoklPd7JW8qCAfAwy0uWs8b";
+
 let queue = [];
 
+// simpan raw body mentah, dibutuhkan buat hitung signature yang presisi
+app.use(express.json({
+	verify: (req, res, buf) => { req.rawBody = buf; }
+}));
+
 app.post('/webhook/bagibagi', (req, res) => {
-	console.log('=== WEBHOOK BAGIBAGI MASUK ===');
-	console.log('HEADERS:', JSON.stringify(req.headers, null, 2));
-	console.log('BODY:', JSON.stringify(req.body, null, 2));
-	console.log('================================');
+	const signature = req.headers['x-bagibagi-signature'];
+	const expected = crypto.createHmac('sha256', BAGIBAGI_TOKEN).update(req.rawBody).digest('hex');
+
+	if (signature !== expected) {
+		console.log('[BagiBagi] ⚠️ Signature gak cocok — Diterima:', signature, '| Dihitung:', expected);
+		// SEMENTARA tetap diproses biar donasi gak ke-skip. Nanti kalau udah confirm cocok, ganti jadi: return res.status(403).send("Forbidden");
+	}
+
+	const b = req.body;
+	console.log('[BagiBagi] Donasi masuk:', b.name, b.amount);
+
+	queue.push({
+		id: b.transaction_id || (Date.now() + "_" + Math.random()),
+		username: String(b.name || "Anonim").trim(),
+		message: String(b.message || "").trim(),
+		amount: Number(b.amount) || 0,
+		time: Date.now(),
+	});
+
 	res.status(200).send("OK");
 });
 
