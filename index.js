@@ -8,9 +8,9 @@ const SECRET_KEY = process.env.SECRET_KEY || "GAweeebagiiiisserracnjaeab2";
 const BAGIBAGI_TOKEN = process.env.BAGIBAGI_WEBHOOK_TOKEN || "P5clNlrCKtoklPd7JW8qCAfAwy0uWs8b";
 
 // Konfigurasi Roblox OAuth (Gunakan Environment Variables di Render)
-const ROBLOX_CLIENT_ID = process.env.ROBLOX_CLIENT_ID || "isi_client_id_dari_dashboard_roblox";
-const ROBLOX_CLIENT_SECRET = process.env.ROBLOX_CLIENT_SECRET || "isi_client_secret_dari_dashboard_roblox";
-const ROBLOX_REDIRECT_URI = process.env.ROBLOX_REDIRECT_URI || "https://NAMA-WEB-SERVICE-RENDER-KAMU.onrender.com/callback";
+const ROBLOX_CLIENT_ID = process.env.ROBLOX_CLIENT_ID || "8128020462492537139";
+const ROBLOX_CLIENT_SECRET = process.env.ROBLOX_CLIENT_SECRET || "RBX--zfdKA43SUWkk9x6Q2KOkHXsa2BcT8-JjkE8uWrNAgnKSz67GvSJFL0txHMCUw6-";
+const ROBLOX_REDIRECT_URI = process.env.ROBLOX_REDIRECT_URI || "https://donasi-2wu6.onrender.com";
 
 let queue = [];
 
