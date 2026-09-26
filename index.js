@@ -10,7 +10,7 @@ const BAGIBAGI_TOKEN = process.env.BAGIBAGI_WEBHOOK_TOKEN || "P5clNlrCKtoklPd7JW
 // Konfigurasi Roblox OAuth (Gunakan Environment Variables di Render)
 const ROBLOX_CLIENT_ID = process.env.ROBLOX_CLIENT_ID || "8128020462492537139";
 const ROBLOX_CLIENT_SECRET = process.env.ROBLOX_CLIENT_SECRET || "RBX--zfdKA43SUWkk9x6Q2KOkHXsa2BcT8-JjkE8uWrNAgnKSz67GvSJFL0txHMCUw6-";
-const ROBLOX_REDIRECT_URI = process.env.ROBLOX_REDIRECT_URI || "https://donasi-2wu6.onrender.com";
+const ROBLOX_REDIRECT_URI = process.env.ROBLOX_REDIRECT_URI || "https://donasi-2wu6.onrender.com/callback";
 
 let queue = [];
 
