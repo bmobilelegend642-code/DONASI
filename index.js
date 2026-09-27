@@ -2,7 +2,7 @@ const express = require('express');
 const crypto = require('crypto');
 const app = express();
 
-const SECRET_KEY = process.env.SECRET_KEY || "GAweeebagiiiisserracnjaeab2";
+const SECRET_KEY = process.env.SECRET_KEY || "weeebagiiiisserracnjaeab2";
 const BAGIBAGI_TOKEN = process.env.BAGIBAGI_WEBHOOK_TOKEN || "P5clNlrCKtoklPd7JW8qCAfAwy0uWs8b";
 
 let queue = [];
